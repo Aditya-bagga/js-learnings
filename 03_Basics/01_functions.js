@@ -49,4 +49,3 @@ function loginUserMessage(username){
 console.log(loginUserMessage("Aditya"))
 console.log(loginUserMessage())//undefined just logged in
 
-
