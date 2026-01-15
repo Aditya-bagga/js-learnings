@@ -1,0 +1,33 @@
+// JS code Run in two phases
+
+// we have written js code 
+// then forms the Gliobal Execution context and kept 
+// inside (this)
+// executes in thread (single)
+
+// * Gliobal execution context
+// * Functional execution context
+// * Eval execution context
+
+// code run in two phases:
+// 1) memory creation phase: memory allocation for var....
+// // let val1 = 10
+// // let val2 = 5
+
+// // function addNum(){
+// //     let total = num1 + num2
+// //     return total
+// // }
+// // let result1  = addNum(val1 , val2)
+// // let result2 = addnum(10,2)
+// step1 : Global Execution/Environment in this
+// step2 : Memory phase (val1)->undefined (val2)->undefined addNum->defination result1-> undefined result2->undefined
+// above is first cycle
+// step3: Execution phase val1 = 10 , val2 = 5 addNum-> execution context : new variable environment + execution thread) new executional context also got delete after complete
+// for function again we do memory phase and execution phase :
+// memory: val1->undefined val2 -> undefined total -> undefined Execution context : num1 -> 10 num2 ->5 total -> 15 return in global EC 
+
+
+// CALL STACK:
+
+//global EC -> add method done removed (LIFO)
