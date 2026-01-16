@@ -42,13 +42,17 @@ const books = [
         title : 'book four' , genre :'history' ,publish : 1981 , edition : 2004
     },
     {
-        title : 'book five' , genre :'fiction' ,publish : 1981 , edition : 2004
+        title : 'book five' , genre :'fiction' ,publish : 1981 , edition : 1004
     }
 ];
 
-const userBooks = books.filter( (bk)=> bk.genre =="history")
+const userBooks = books.filter( (bk)=> bk.genre =='history')
 
+const userDate = books.filter( (bk)=>{
+    return bk.publish>=2000 && bk.genre =="history"
+})
 
 console.log(userBooks);
+console.log(userDate);
 
 
