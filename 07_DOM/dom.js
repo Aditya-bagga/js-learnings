@@ -61,3 +61,23 @@
 
 
 
+// DOCUMENT OBJECT MODEL.........
+// HTML structure....
+//html cant show dynamic behaviour......
+// DOM manipulation : html structure can be manipulated with js
+
+//window global object (by browser js engine)
+
+// browser ke functionality ko access krne me help krta h
+// like console.log("hello") : how it print there on console... // accessing from window object
+// window.console.log("hello")
+
+//alert()
+
+//window.document() -> our html code // .document() gives us access or pointing html 
+// or document
+// but if we run document() via node , its not defined , hence browser defines it
+
+//window.document.write("HEY there"); // writes in html code directly
+
+//Event listeners : particular element pe we can add listener
