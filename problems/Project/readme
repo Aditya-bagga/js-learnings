@@ -1,0 +1,109 @@
+npm init // initializing environment
+versioning : semver.org
+
+which file will start project : entry point
+
+index.js....
+
+require and import // syntax to bring third party codes in our 
+
+import : package json - > "type" :commonjs or module (latest)
+
+require : directly
+
+project ki kundli : .env or .env.sample
+
+
+------------------------------------------
+
+environment variables....
+
+database and database password , want to keep it safe 
+API keys and global info needed to keep safe 
+these sensitive data at env
+
+env file never pushed at github only at server
+
+
+-------------------------------------
+
+
+client : send req and server responds 
+
+
+
+expressJS  :  npm install express
+
+pasted a code from express file
+
+import express from express
+
+we are creating webserver which works on ports
+
+
+dont use busy ports , use common
+3000 , 4000 , 5000
+5173 , 8080 , 8000
+
+
+not 443 , 23 , 80
+
+client send different type of request 
+get , post , put ,delete and on which route
+
+callback : request from client and response from server
+
+
+app.listen (port , callback)
+
+node index.js
+
+first listen thing woked
+
+
+http://127.0.0.1:3000/ in this way we send get request via browser
+
+app.get(route,()=>{
+
+})
+
+app.get("aditya",()=>{
+route start with /
+}) error type one..........
+
+npm i -D nodemon  // now we 
+development dependencies
+
+at json - "start":"nodemon index.js"
+
+npm run start now automatic update no again
+again node index.js auto check 
+
+-----------------------------
+
+npm i dotenv
+
+import dotenv from "dotenv";
+dotenv.config(): pathname can be added.... 
+
+process.env.PORT
+
+-------------------------------------
+
+earlier appn : laravel/php , backend and frontend same place no different concept of frontend and backend , serve from the same place.....
+
+now : FRONTEND ---- BACKEND
+user req at frontend then frontend send to backend......
+
+directly req at backend ? - not usually 
+
+we need that our frontend talks
+
+
+cors: cors error resolved at backend...
+
+cors package: npm i cors
+
+
+npm run start : nodeman... cors is the topic
+we gonna study tommorow bye...
