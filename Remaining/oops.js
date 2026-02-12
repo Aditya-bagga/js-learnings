@@ -19,9 +19,31 @@ let computer = {
 }
 
 let lenovo = {
-    screen : "HD"
-}
+    screen : "HD",
+    __proto__ : computer // accesing properties of computer  // older way we have to hunt the introduction 
+};
 
 let tomHardware = {}
 
-console.log(computer)
+// console.log(`computer` , computer.__proto__); //two underscore : dunder , here output : {} bcz its default properties doesnt find necessary to show
+// console.log(`computer` , lenovo.__proto__); //two underscore : dunder , here we explicitly defined proto , 
+
+
+let genericCar = {tyres:4
+
+}
+
+let tesla = {
+    driver : "AI" 
+}
+
+
+//older way : __proto__:, Object.setPrototypeOf(tesla , genericCar) 
+Object.setPrototypeOf(tesla,genericCar) 
+
+console.log(`tesla` , tesla.tyres);
+console.log(`tesla`, Object.getPrototypeOf(tesla));
+console.log(`tesla` , tesla.hasOwnProperty('tyres')  );
+
+// has own property -> if its own property or ingherited one gives boolean result......
+
