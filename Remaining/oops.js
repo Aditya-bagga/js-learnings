@@ -144,3 +144,65 @@ return dog;
 
 //ENCAPSULATION , INHERITANCE , POLYMORPHISM , ABSTRACTION
 
+// OBJECT created using object literal syntax (Instance of an object)**
+
+
+let car = {
+    make: "Toyota",
+    model : "Camry",
+    year  : 2020,
+    start : function (){
+        return `${this.make} car got started in ${this.year}`;
+    }
+}
+// console.log(car.start());
+
+//COnstructor fn
+function Person(name,age){
+    this.name = name;
+    this.age = age;
+}
+
+let john = new Person("John Doe" , 20);
+// console.log(john);
+
+
+function Animal(type){
+    this.type = type
+}
+
+Animal.prototype.speak = function(){
+    return `${this.type} makes a sound`
+}
+
+Array.prototype.aditya = function(){
+    return `custom method ${this}`
+}
+
+let myArray = [1,2,3,4]
+// console.log(myArray.aditya());
+
+class Vehicle {
+    //function declared inside class : methods
+    constructor(make, model){
+        this.make = make;
+        this.model = model;
+    }
+    start(){
+        return `${this.model} is a car from ${this.make}`;
+    }
+}
+
+class Car9 extends Vehicle{
+    drive(){
+        return `${this.make} : This is an inheritance example`;
+    }
+}
+
+
+let myCar1 = new Car9("Toyota" , "Corolla")
+// console.log(myCar1.start());
+// console.log(myCar1.drive());
+
+let vehOne = new Vehicle("Toyota" , "Corolla");
+console.log(vehOne.make);
