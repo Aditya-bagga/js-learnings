@@ -205,4 +205,160 @@ let myCar1 = new Car9("Toyota" , "Corolla")
 // console.log(myCar1.drive());
 
 let vehOne = new Vehicle("Toyota" , "Corolla");
-console.log(vehOne.make);
+// console.log(vehOne.make);
+
+//-------------------------------------------------------------------------------------
+
+//Encapsulation : restriction of direct access of object data 
+
+class BankAccount{
+    #balance = 0; // adding # before and it cant be accessed directly
+    deposit(amount){
+        this.#balance +=amount;
+        return this.#balance;
+    }
+    getBalance(){
+        return `$ ${this.#balance}`;
+    }
+}
+
+let account = new BankAccount();
+// console.log(account.getBalance())
+
+
+// Abstraction..........
+// hides the complex things....
+
+class CoffeeMachine{
+    start(){
+        //call DB
+        //filter value
+
+        return `Starting Machine`
+    }
+    brewCoffee(){
+        //complex calculation 
+        return `Brewing coffee`;
+    }
+
+    pressButton(){
+       let msgOne= this.start()
+        let msgTwo=this.brewCoffee()
+        return ` ${msgOne} + ${msgTwo}`;
+    }
+}
+
+let myMachine = new CoffeeMachine();
+// console.log(myMachine.start());
+// console.log(myMachine.brewCoffee());
+
+
+// console.log(myMachine.pressButton());
+
+// with pressButton fn the user just have to press button and his coffee is done, now he doenst need to 
+// know what things are going on
+
+
+// POLYMORPHISM
+
+//the ability of something to have or to be displayed in or more than formn
+
+
+class Bird{
+    fly(){
+        return `Flying........`;
+    }
+}
+
+class Penguin extends Bird {
+    fly(){
+        return `penguins cant fly`;
+    }
+}
+
+class Sparrow extends Bird{
+
+}
+
+let bird = new Bird();
+let penguin = new Penguin();
+
+// console.log(bird.fly());
+// console.log(penguin.fly());
+
+
+//------------------------------------------------------------------------
+
+//static method: only called by class itself
+
+class Calculator {
+    static add(a,b){  // 
+        return a+b;
+    }
+}
+
+let miniCalc = new Calculator();
+// console.log(miniCalc.add(2,3)); cant be accessed by object / 
+// console.log(Calculator.add(2,3))
+
+// ----------------------------------------------------------
+
+//getters and setters 
+
+
+class Employee{
+    #salary;
+    constructor(name,salary){
+        if(salary<0){
+            throw new Error("Salary cant be neghative");
+            
+        }
+        this.name = name;
+        this.#salary = salary; //_salary udnerscored : there is something special about this and something is about to come(good practice)
+    }
+
+    get salary(){
+        return `you are not allowed to see salary`;
+
+    }
+    // who can set and get the value......
+    set salary(value){
+        if(value<0){
+            console.error("Invalid Salary");
+        }
+        else{
+            this._salary = value
+        }
+    }
+}
+
+let emp = new Employee("Alice",50000);
+// console.log(emp.salary=90000);
+// console.log(emp.salary);
+
+// we cant add a method directly inside a function , like add(){} , function sum{sum.prototype.add=function(){}}
+// prototype chaing : 
+/*
+function Animal(){
+}
+Animal.prototype.speak = function(){
+return 'Animal speaking';}
+
+function Dog(){
+}
+
+Dog.prototype = Object.create(Animal.prototype);
+Dog.prototype.constructor = Dog;
+
+Dog.prototype.bark = function () {
+    return this.speak() + " Woof!";
+};
+
+let dog = new Dog();
+console.log(dog.bark());
+
+
+
+
+
+*/
