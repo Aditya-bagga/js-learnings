@@ -330,3 +330,68 @@ A promise has 3 states.
 
 
 */
+
+// prototypal inheritance :
+
+// function Person(name){
+//     this.name = name;
+// }
+// Person.prototype.greet = function(){
+//     console.log(`my name is ${this.name}`);
+
+// }
+
+// let adi = new Person("Aditya")
+// adi.greet();
+
+// this and binding context...
+
+const person = {
+    name: "aditya",
+    greet(){
+        console.log(`hi I am ${this.name}`);
+    }
+};
+
+person.greet(); //directly access
+//when we transfer this from one memory to other , context become missing
+const greetFunction = person.greet //context is lost in this case
+greetFunction(); // we copied the function , so the context is lost
+
+const boundGreet = person.greet.bind({name:"john"});
+boundGreet();
+
+//bind , call and apply 
+person.greet.call({name:"divya"});
+// call() executes the function immidiately and allows us to set this
+// So call() basically says:
+
+// Run this function with this object as context
+
+/*
+apply()
+
+apply() is almost the same as call().
+
+Difference:
+
+Arguments are passed as an array.
+
+Syntax:
+
+function.apply(thisArg, [arg1, arg2])
+
+Example:
+
+function introduce(age, city){
+    console.log(`I am ${this.name}, ${age}, from ${city}`);
+}
+
+introduce.apply({name:"Aditya"}, [22, "Delhi"]);
+
+Output
+
+I am Aditya, 22, from 
+
+
+*/
