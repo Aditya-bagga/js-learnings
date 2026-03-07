@@ -214,20 +214,20 @@ while(true){
 
 // closures :  are functions , they remember the ennvironemnt in which they are created
 
-function outer(){
-    let counter = 4 ;
-    return function(){
-        counter++
-        return counter
-    }
-}
+// function outer(){
+//     let counter = 4 ;
+//     return function(){
+//         counter++
+//         return counter
+//     }
+// }
 
-let increment = outer();
-console.log(increment());
-console.log(increment());
-console.log(increment());
-console.log(increment());
-console.log(increment());
+// let increment = outer();
+// console.log(increment());
+// console.log(increment());
+// console.log(increment());
+// console.log(increment());
+// console.log(increment());
 
 /*
 4. Normally What Should Happen?
@@ -255,3 +255,78 @@ That remembered environment = closure.
 
 //  promises and promise chaining
 
+function fetchData(){
+    return new Promise((resolve,reject)=>{
+        setTimeout(() => {
+            let success = true;
+            if(success){
+                resolve("Data fetcehd siuccessFully");
+            }else{
+                reject("Error in fetching data");
+            }
+        },3000);
+    })
+};
+
+// let response = fetchData();
+// console.log(response);
+
+// fetchData()
+//     .then((data)=>{
+//         console.log(data)
+//     })
+//     .then((value)=>{
+//         console.log(value);
+//     })
+//     .catch((error)=>{
+//         console.log(error);
+//     })
+    
+
+/* But when programs grow, asynchronous code becomes messy.
+
+loginUser(function(user){
+    getUserPosts(user, function(posts){
+        getComments(posts, function(comments){
+            console.log(comments);
+        });
+    });
+});
+
+This is called:
+
+Callback Hell
+
+Problems:
+
+hard to read
+
+hard to debug
+
+nested code
+
+Promises solve this.
+
+2. What is a Promise?
+
+A Promise is an object that represents the future result of an asynchronous operation.
+
+Think of it like:
+
+"I promise I will give you the result later."
+
+Example real-life promise:
+
+You order food → promise created
+Food delivered → fulfilled
+Food cancelled → rejected
+3. Promise States
+
+A promise has 3 states.
+
+1. Pending
+2. Fulfilled
+3. Rejected
+
+
+*/
