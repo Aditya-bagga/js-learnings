@@ -353,16 +353,16 @@ const person = {
     }
 };
 
-person.greet(); //directly access
+// person.greet(); //directly access
 //when we transfer this from one memory to other , context become missing
 const greetFunction = person.greet //context is lost in this case
-greetFunction(); // we copied the function , so the context is lost
+// greetFunction(); // we copied the function , so the context is lost
 
 const boundGreet = person.greet.bind({name:"john"});
-boundGreet();
+// boundGreet();
 
 //bind , call and apply 
-person.greet.call({name:"divya"});
+// person.greet.call({name:"divya"});
 // call() executes the function immidiately and allows us to set this
 // So call() basically says:
 
@@ -395,3 +395,68 @@ I am Aditya, 22, from
 
 
 */
+
+
+// other way of consuming promises earlier .then .catch
+//async and await: asynchronus and await
+
+
+function fetchUserData(){
+    return new Promise((resolve,reject)=>{
+        setTimeout(() => {
+            resolve({name:"chaicode",
+                url:"https://chaicode.com"
+            })
+        }, 3000);
+    })
+}
+async function getUserData(){
+    try {
+        console.log("Fetching user data.....");
+        const userData=await fetchUserData();
+        console.log("user data fetched successfully") //await comes with async
+        console.log("user data:" , userData);
+
+    } catch (error) {
+        console.log("Error fetching data",error);
+    }
+}
+// getUserData();
+
+
+
+function fetchPostData(){
+    return new Promise((resolve)=>{
+        setTimeout(() => {
+            resolve("Post data fetched")
+        }, 2000);
+    })
+}
+
+function fetchCommentData(){
+    return new Promise((resolve)=>{
+        setTimeout(() => {
+            resolve("comment data fetched.")
+        }, 3000);
+    })
+}
+
+async function getBlogData(){
+    try {
+        console.log("fetching blog data");
+        // const blogData = await fetchPostData()
+        // const commentData = await fetchCommentData()
+        const [blogData,commentData]=await Promise.all([
+            fetchPostData() ,
+            fetchCommentData(),
+        ]);
+
+        console.log(blogData);
+        console.log(commentData);
+        console.log("Fetch complete");
+    } catch (error) {
+        console.error("Error fetching blog data",error)
+    }
+}
+
+// getBlogData();
